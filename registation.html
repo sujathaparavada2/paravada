@@ -1,0 +1,25 @@
+<html>
+    <head>
+    <title>wistm</title>
+    </head>
+    <body>
+        <form action="" name="submit-to-google-sheet">
+            <h1> registration form</h1>
+            <input type="text" name="name" placeholder="Enter your name"><br>
+            <input type="mail" name="Gmail" placeholder="enter your gmai"><br>
+            <input type="tell" name="phone" placeholder="phonenumber"><br>
+            <input type="submit">
+        </form>
+        <script>
+            const scriptURL = ''
+            const form = document.forms['submit-to-google-sheet']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => console.log('Success!', response))
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
+    </body>
+</html>
